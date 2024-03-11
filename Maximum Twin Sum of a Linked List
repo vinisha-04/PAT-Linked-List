@@ -1,0 +1,27 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def pairSum(self, head):
+        """
+        :type head: Optional[ListNode]
+        :rtype: int
+        """
+        ans = 0
+        # we can use of slow and fast pointer
+        # we can use stack also
+        stack = []
+        temp = head
+        while(temp):
+            stack.append(temp.val)
+            temp = temp.next
+        
+        curr = head
+        while(curr):
+            res = curr.val + stack.pop()
+            if(res>ans):
+                ans = res
+            curr = curr.next
+        return ans
